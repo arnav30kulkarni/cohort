@@ -192,12 +192,12 @@
 
 // Static 
 
-class demo{
-    static hello(){
-        console.log("hello world!");
-    }
-}
+// class demo{
+//     static hello(){
+//         console.log("hello world!");
+//     }
+// }
 
-let oj = new demo();
+// let oj = new demo();
 
-demo.hello();
+// demo.hello();
