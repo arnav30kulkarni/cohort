@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+        // .then SYNTAX
+
+        // function getData() {
+        //     const fetchPromise = fetch("http://localhost:5000");
+        //     fetchPromise
+        //     .then((response) => response.json())
+        //     .then((data) => {
+        //         console.log(data);
+        //     });
+        // }
+
+        // ASYNC AWAIT SYNTAX
+
+        async function getData(){
+            const response = await fetch("http://localhost:5000");
+            const finalData = await response.json()
+            console.log(finalData)
+        }
+
+    </script>
+    <button onclick="getData()"> get data</button>
+</body>
+</html>
