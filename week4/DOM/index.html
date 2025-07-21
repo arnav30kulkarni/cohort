@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <script>
+        function populateDiv(){
+            const a = document.getElementById("first").value 
+            const b = document.getElementById("second").value
+            const element = document.getElementById("finalsum");
+            element.innerHTML("the sum is " + (parseInt(a)+parseInt(b)))
+        }
+    </script>
+    <body>
+        <input type="text" placeholder="first number" id="first"></input> <br>
+        <input type="text" placeholder="second number" id="second"></input><br>
+        <button onclick="populateDiv()">caluclate sum</button><br>
+        <div id="finalSum">This will change</div>
+    </body>
+</html>
+
+ 
