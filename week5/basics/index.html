@@ -1,0 +1,22 @@
+//basic counter
+
+<html>
+    <script>
+        function counter(){
+            const currentValue = document.getElementById("btn").innerHTML;
+            console.log(currentValue.split(" "));
+            const currentCounter = currentValue.split(" ")[1];
+            const newCounter = parseInt(currentCounter)+ 1;
+            const count = document.getElementById("btn")
+            count.innerHTML =(`Counter ${newCounter}`);
+        }
+    </script>
+    <body>
+        <button onclick="counter()" id="btn">counter 0</button>
+    </body>
+</html>
+
+<!-- here currentvalue.split(" ") separates counter from the number like so
+ first currentvalue = "counter 0"
+after currentvalue.split(" "):-
+currentValue = ["counter","1"];  -->
