@@ -1,46 +1,28 @@
-import { useEffect, useState } from 'react';
-import './App.css'
-import axios from 'axios';
-
-function App () {
-    const[todo,setTodo]=useState([]);
-    const[currId,setCurrId] = useState()
-    useEffect(()=>{
-        axios.get("https://dummyjson.com/todos")
-        .then(function(response){
-            setTodo(response.data.todos)
-        })
-    },[currId])
+import { useMemo, useState } from 'react';
+//useMemo helps avoid complete rerendering when one of the value to rerender 
+function App(){
+    const[counter,setCounter]=useState(0);
+    const[inputValue,setInputValue]=useState(1);
+    
+    let count = useMemo(()=>{
+        let count = 0 
+            for(let i=0;i<=inputValue;i++){
+            count = count + i;
+    }
+    return count
+       },[inputValue]
+    );
+    
     return(
         <div>
-            <button onClick={()=> setCurrId(1)}>1</button>
-            <button onClick={()=> setCurrId(2)}>2</button>
-            <button onClick={()=> setCurrId(3)}>3</button>
-            <button onClick={()=> setCurrId(4)}>4</button> 
-            {/* for random number */}
-            <button onClick={()=> setCurrId(Math.ciel(Math.random()*todo.length))}>random</button> 
-            {/* {todo.map((todos)=>{
-                if (todos.id ===1){x
-                return( <Todo key={todos.id} todo={todos.todo} description=""></Todo>)}
-            })} */}
-            {
-                todo.filter((t)=>t.id === currId)
-                .map((t)=>
-                <Todo key={t.id} todo={t.todo} description=""></Todo>)
-            }
-        </div>
-    )
-}
-
-function Todo({id, todo, description}){
-    return(
-        <div>
-        <h1>
-            {todo}
-        </h1>
-        <h4>
-            {description}
-        </h4>
+           <input onChange={function(e){
+            setInputValue(e.target.value);
+            //  here e.target.value sets the value input as on inputValue
+           }} placeholder={'enter your number'}/> <br />
+            sum from 1 to {inputValue} is {count}  <br />
+            <button onClick={()=>{
+                setCounter(counter => counter + 1);
+            }}>count is ({counter})</button>
         </div>
     )
 }

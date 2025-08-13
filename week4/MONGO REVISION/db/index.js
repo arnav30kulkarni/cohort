@@ -1,7 +1,7 @@
 const mongoose =require("mongoose");
 
 //connect to mongo
-mongoose.connect("mongodb+srv://arnav30kulkarni:ShxEC38nWLRt8Vec@cluster0.kynwllg.mongodb.net/")
+mongoose.connect("YOUR_MONGO_URI")
 
 //schemas
 
