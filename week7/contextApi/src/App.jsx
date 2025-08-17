@@ -1,33 +1,47 @@
 
-import { useState } from 'react'
+import { createContext, useContext, useState } from 'react'
 import './App.css'
-import { set } from 'mongoose';
+import CountContext from './Context';
 
 function App() {
   const [count,setCount]=useState(0);
+
+  // wrap anyone that wants to use teleoprted value inside a provider
+
   return (
     <>
-   <Button count = {count} setCount = {setCount} />
-   <Count count = {count}/>
+    <CountContext.Provider value={count}>
+    <Count setCount={setCount} />
+    </CountContext.Provider>
    </>
   )
 }
 
 
-function Count({count}){
+function Count({setCount}){
  return(
   <>
-  the count is {count}
+  <CountRender/>
+  <Button setCount={setCount}/>
   </>
  )
 }
-function Button({count,setCount}){
+
+function CountRender(){
+  const count = useContext(CountContext)
+  return <div>
+    {count}
+  </div>
+}
+
+function Button({setCount}){
+  const count = useContext(CountContext)
   return( <div>
     <button onClick={()=>{
-      setCount(count=>count+1)
+      setCount(count+1)
     }}>increase count</button>
     <button onClick={()=>{
-      setCount(count=>count-1)
+      setCount(count-1)
     }}>decrease count</button>
   </div>)
 }
