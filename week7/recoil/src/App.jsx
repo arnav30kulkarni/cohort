@@ -1,7 +1,8 @@
 import React from 'react'
 import { RecoilRoot, useRecoilState, useSetRecoilState , useRecoilValue } from 'recoil'
 import './App.css'
-import CountAtom from '../store/atoms/Count'
+import {CountAtom} from '../store/atoms/Count'
+import { EvenSelector } from '../store/atoms/Count'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function Count(){
  return(
   <>
   <CountRender/>
+  <EvenPrinter></EvenPrinter>
   <Button />
   </>
  )
@@ -29,6 +31,13 @@ function CountRender(){
   <div>
     {count}
   </div>
+  )
+}
+
+const EvenPrinter = () => {
+  const isEven = useRecoilValue(EvenSelector);
+  return (
+    isEven ? "EVEN" : "ODD"
   )
 }
 

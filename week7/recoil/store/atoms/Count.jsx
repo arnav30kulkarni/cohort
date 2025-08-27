@@ -5,11 +5,13 @@ export const CountAtom = atom({
     default:0
 })
 
+// THIS CAN BE IN SEPERATE SELECTORS FOLDER
+
 export const EvenSelector = selector({
     key:'evenSelector',
     get: ({get}) => {
-        const count = props.get(CountAtom);
-        return count % 2 
+        const count = get(CountAtom);
+        return count % 2 == 0;
     }
 } );
 
