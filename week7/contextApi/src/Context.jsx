@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
- const CountContext = createContext(0);
+ const CountContext = createContext();
 
  export default CountContext
