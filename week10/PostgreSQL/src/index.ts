@@ -14,9 +14,9 @@ const getUser = async(email:string)=>{
     const client = new pg.Client({
     host: "localhost",
     port:5432,
-    database: "MyDB",
+    database: "YourDbName",
     user:"postgres",
-    password:"8605186372Sql"
+    password:"Pass"
     });
 
     await client.connect();
